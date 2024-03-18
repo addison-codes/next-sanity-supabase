@@ -44,3 +44,40 @@ export async function signup(formData: FormData) {
   revalidatePath('/', 'layout')
   redirect('/')
 }
+
+export async function loginWithGoogle() {
+  const supabase = createClient()
+
+  let redirectURL: string = 'http://localhost:3000/auth/callback'
+
+  process.env.VERCEL_ENV === 'production'
+    ? (redirectURL = `https://your-app.vercel.app/auth/callback`)
+    : (redirectURL = `http://localhost:3000/auth/callback`)
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: redirectURL,
+    },
+  })
+
+  if (error) {
+    redirect('/error')
+  }
+
+  revalidatePath('/', 'layout')
+  redirect(data.url)
+}
+
+export async function logout() {
+  const supabase = createClient()
+
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    redirect('/error')
+  }
+
+  revalidatePath('/', 'layout')
+  redirect('/')
+}
