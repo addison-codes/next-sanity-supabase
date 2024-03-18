@@ -51,7 +51,7 @@ export async function loginWithGoogle() {
   let redirectURL: string = 'http://localhost:3000/auth/callback'
 
   process.env.VERCEL_ENV === 'production'
-    ? (redirectURL = `https://your-app.vercel.app/auth/callback`)
+    ? (redirectURL = `https://${process.env.VERCEL_URL}/auth/callback`)
     : (redirectURL = `http://localhost:3000/auth/callback`)
 
   const { data, error } = await supabase.auth.signInWithOAuth({
