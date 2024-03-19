@@ -45,29 +45,29 @@ export async function signup(formData: FormData) {
   redirect('/')
 }
 
-export async function loginWithGoogle() {
-  const supabase = createClient()
+// export async function loginWithGoogle() {
+//   const supabase = createClient()
 
-  let redirectURL: string = 'http://localhost:3000/auth/callback'
+//   let redirectURL: string = 'http://localhost:3000/auth/callback'
 
-  process.env.VERCEL_ENV === 'production'
-    ? (redirectURL = `https://${process.env.VERCEL_URL}/auth/callback`)
-    : (redirectURL = `http://localhost:3000/auth/callback`)
+//   process.env.VERCEL_ENV === 'production'
+//     ? (redirectURL = `https://${process.env.VERCEL_URL}/auth/callback`)
+//     : (redirectURL = `http://localhost:3000/auth/callback`)
 
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: redirectURL,
-    },
-  })
+//   const { data, error } = await supabase.auth.signInWithOAuth({
+//     provider: 'google',
+//     options: {
+//       redirectTo: redirectURL,
+//     },
+//   })
 
-  if (error) {
-    redirect('/error')
-  }
+//   if (error) {
+//     redirect('/error')
+//   }
 
-  revalidatePath('/', 'layout')
-  redirect(data.url)
-}
+//   revalidatePath('/', 'layout')
+//   redirect(data.url)
+// }
 
 export async function logout() {
   const supabase = createClient()

@@ -1,4 +1,7 @@
-import { login, loginWithGoogle, logout, signup } from './actions'
+import { Button } from '@/components/ui/button'
+
+import { login, logout, signup } from './actions'
+import { loginWithGoogle } from './google-login'
 
 export default function LoginPage() {
   return (
@@ -8,12 +11,12 @@ export default function LoginPage() {
         <input id="email" name="email" type="email" required />
         <label htmlFor="password">Password:</label>
         <input id="password" name="password" type="password" required />
-        <button formAction={login}>Log in</button>
-        <button formAction={signup}>Sign up</button>
+        <Button formAction={login}>Log in</Button>
+        <Button formAction={signup}>Sign up</Button>
       </form>
       <form>
-        <button formAction={loginWithGoogle}>Log in with Google</button>
-        <button formAction={logout}>Log out</button>
+        <Button formAction={loginWithGoogle}>Log in with Google</Button>
+        <Button formAction={logout}>Log out</Button>
       </form>
     </div>
   )
