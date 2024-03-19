@@ -14,7 +14,7 @@ export function ProjectListItem(props: ProjectProps) {
 
   return (
     <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
+      className={`flex flex-col gap-x-5 p-2 transition xl:flex-row ${
         odd && 'border-b border-t xl:flex-row-reverse'
       }`}
     >
@@ -34,19 +34,19 @@ export function ProjectListItem(props: ProjectProps) {
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
+    <div className="relative flex flex-col justify-between w-full p-3 mt-2 xl:mt-0">
       <div>
         {/* Title */}
         <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
           {project.title}
         </div>
         {/* Overview  */}
-        <div className="font-serif text-gray-500">
+        <div className="">
           <CustomPortableText value={project.overview as PortableTextBlock[]} />
         </div>
       </div>
       {/* Tags */}
-      <div className="mt-4 flex flex-row gap-x-2">
+      <div className="flex flex-row mt-4 gap-x-2">
         {project.tags?.map((tag, key) => (
           <div className="text-sm font-medium lowercase md:text-lg" key={key}>
             #{tag}

@@ -1,5 +1,3 @@
-import '@/styles/index.css'
-
 import type { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
@@ -39,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#000',
+  // themeColor: '#000',
 }
 
 export default async function IndexRoute({
@@ -49,7 +47,7 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div className="flex flex-col min-h-screen text-black bg-white">
+      <div className="flex flex-col min-h-screen">
         <Suspense>
           <Navbar />
         </Suspense>

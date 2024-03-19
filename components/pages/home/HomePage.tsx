@@ -1,6 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
+import { ModeToggle } from '@/components/mode-toggle'
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
@@ -19,6 +20,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <div className="space-y-20">
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
+      <ModeToggle />
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
