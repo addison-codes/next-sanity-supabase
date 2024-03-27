@@ -5,17 +5,12 @@ import Link from 'next/link'
 import { HomePage } from '@/components/pages/home/HomePage'
 import { studioUrl } from '@/sanity/lib/api'
 import { loadHomePage } from '@/sanity/loader/loadQuery'
-import { createClient } from '@/utils/supabase/server'
 const HomePagePreview = dynamic(
   () => import('@/components/pages/home/HomePagePreview'),
 )
 
 export default async function IndexRoute() {
-  const supabase = createClient()
-
   const initial = await loadHomePage()
-  const { data, error } = await supabase.auth.getUser()
-  console.log(data, error)
 
   if (draftMode().isEnabled) {
     return <HomePagePreview initial={initial} />
