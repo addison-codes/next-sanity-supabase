@@ -42,41 +42,50 @@ export default function LoginPage() {
               </p>
             </div>
             <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  placeholder="name@example.com"
-                  required
-                  type="email"
-                />
-              </div>
-              <div className="relative space-y-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <Link
-                    className="inline-block ml-auto text-sm underline"
-                    href="#"
-                  >
-                    Forgot your password?
-                  </Link>
+              <form>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    placeholder="name@example.com"
+                    required
+                    type="email"
+                  />
                 </div>
-                <Input id="password" required type="password" />
-                <Button
-                  className="absolute bottom-1 right-1 h-7 w-7"
-                  size="icon"
-                  variant="ghost"
-                >
-                  <EyeIcon className="w-4 h-4" />
-                  <span className="sr-only">Toggle password visibility</span>
+                <div className="relative space-y-2">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                    <Link
+                      className="inline-block ml-auto text-sm underline"
+                      href="#"
+                    >
+                      Forgot your password?
+                    </Link>
+                  </div>
+                  <Input id="password" required type="password" />
+                  <Button
+                    className="absolute bottom-1 right-1 h-7 w-7"
+                    size="icon"
+                    variant="ghost"
+                  >
+                    <EyeIcon className="w-4 h-4" />
+                    <span className="sr-only">Toggle password visibility</span>
+                  </Button>
+                </div>
+                <Button formAction={login} className="w-full" type="submit">
+                  Login
                 </Button>
-              </div>
-              <Button className="w-full" type="submit">
-                Login
-              </Button>
-              <Button className="w-full" variant="outline">
-                Login with Google
-              </Button>
+              </form>
+              <form>
+                <Button
+                  formAction={loginWithGoogle}
+                  className="w-full"
+                  variant="outline"
+                >
+                  <GoogleLogo className="mr-2" />
+                  Login with Google
+                </Button>
+              </form>
             </div>
             <div className="mt-4 text-sm text-center">
               Don&apos;t have an account?
