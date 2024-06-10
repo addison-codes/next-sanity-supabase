@@ -81,3 +81,25 @@ export async function logout() {
   revalidatePath('/', 'layout')
   redirect('/')
 }
+
+export async function forgotPassword(formData: FormData) {
+  const supabase = createClient()
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    email: formData.get('email') as string,
+  }
+
+  console.log(data);
+
+  const { error } = await supabase.auth.resetPasswordForEmail(data.email)
+
+  if (error) {
+    console.log(error);
+    redirect('/error')
+  }
+
+  revalidatePath('/', 'layout')
+  redirect('/')
+}

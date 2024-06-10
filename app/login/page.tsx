@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
-import { login, logout, signup } from './actions'
+import { login, forgotPassword } from './actions'
 import { loginWithGoogle } from './google-login'
 
 export default function LoginPage() {
@@ -55,12 +55,13 @@ export default function LoginPage() {
                 <div className="relative space-y-2">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <Link
+                    <Button
                       className="inline-block ml-auto text-sm underline"
-                      href="#"
+                      variant="link"
+                      formAction={forgotPassword}
                     >
                       Forgot your password?
-                    </Link>
+                    </Button>
                   </div>
                   <Input id="password" required type="password" />
                   <Button
@@ -88,7 +89,7 @@ export default function LoginPage() {
               </form>
             </div>
             <div className="mt-4 text-sm text-center">
-              Don&apos;t have an account?
+              Don&apos;t have an account?&nbsp;
               <Link className="underline" href="#">
                 Sign up
               </Link>
