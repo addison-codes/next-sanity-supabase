@@ -26,7 +26,7 @@ import {
 import { toast } from '@/components/ui/use-toast'
 import { cn } from '@/lib/utils'
 
-import { createMember, updateMemberById } from '../actions'
+import { createMember, updateMemberById } from '../../actions'
 
 const FormSchema = z
   .object({
