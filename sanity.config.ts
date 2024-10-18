@@ -19,6 +19,12 @@ import milestone from '@/sanity/schemas/objects/milestone'
 import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
+import promotionType from '@/sanity/schemas/objects/promotionType'
+import formType from '@/sanity/schemas/objects/formType'
+import heroType from '@/sanity/schemas/objects/heroType'
+import imageGallery from '@/sanity/schemas/objects/imageGallery'
+import textWithIllustration from '@/sanity/schemas/objects/textWithIllustration'
+import videoType from '@/sanity/schemas/objects/videoType'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -42,6 +48,12 @@ export default defineConfig({
       // Objects
       milestone,
       timeline,
+      promotionType,
+      formType,
+      heroType,
+      imageGallery,
+      textWithIllustration,
+      videoType,
     ],
   },
   plugins: [

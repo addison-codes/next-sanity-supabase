@@ -23,6 +23,42 @@ export const pagesBySlugQuery = groq`
     overview,
     title,
     "slug": slug.current,
+    pageBuilder[]{
+      _type == "hero" => {
+        _type,
+        heading,
+        tagline,
+        image
+      },
+      _type == "textWithIllustration" => {
+        _type,
+        heading,
+        tagline,
+        excerpt,
+        image,
+        altText
+      },
+      _type == "gallery" => {
+        _type,
+        images[]
+      },
+      _type == "form" => {
+        _type,
+        heading,
+        label,
+        form
+      },
+      _type == "video" => {
+        _type,
+        label,
+        url
+      },
+      _type == "callToAction" => @-> {
+        _type,
+        title,
+        link
+      },
+    }
   }
 `
 
