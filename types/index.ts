@@ -49,6 +49,7 @@ interface Gallery {
 
 interface Form {
   _type: 'form'
+  form: string
   // Add other properties specific to the form type if any
 }
 

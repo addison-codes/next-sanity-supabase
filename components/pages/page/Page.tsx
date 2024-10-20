@@ -1,6 +1,9 @@
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import Gallery from '@/components/shared/Gallery'
 import { Header } from '@/components/shared/Header'
 import HeroSectionCentredWithImage from '@/components/shared/Hero'
+import TextWithIllustration from '@/components/shared/TextWithIllustration'
+import Form from '@/components/shared/Forms'
 import type { PagePayload } from '@/types'
 
 export interface PageProps {
@@ -10,8 +13,6 @@ export interface PageProps {
 export function Page({ data }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { body, overview, title, pageBuilder } = data ?? {}
-
-  console.log(pageBuilder)
 
   return (
     <div>
@@ -31,10 +32,16 @@ export function Page({ data }: PageProps) {
 
         {pageBuilder &&
           pageBuilder.map((block, key) => {
-            // console.log(block)
+            console.log(block)
             switch (block._type) {
               case 'hero':
                 return <HeroSectionCentredWithImage block={block} key={key} />
+              case 'textWithIllustration':
+                return <TextWithIllustration block={block} key={key} />
+              case 'gallery':
+                return <Gallery block={block} key={key} />
+              case 'form':
+                return <Form block={block} key={key} />
               default:
                 return null
             }
