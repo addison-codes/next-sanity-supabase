@@ -5,6 +5,7 @@ import HeroSectionCentredWithImage from '@/components/shared/Hero'
 import TextWithIllustration from '@/components/shared/TextWithIllustration'
 import Form from '@/components/shared/Forms'
 import type { PagePayload } from '@/types'
+import Video from '@/components/shared/Video'
 
 export interface PageProps {
   data: PagePayload | null
@@ -42,6 +43,8 @@ export function Page({ data }: PageProps) {
                 return <Gallery block={block} key={key} />
               case 'form':
                 return <Form block={block} key={key} />
+              case 'video':
+                return <Video block={block} key={key} />
               default:
                 return null
             }
